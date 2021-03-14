@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db_peixesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TB_PEIXES">
+          <Key>
+            <PropertyRef Name="id_peixe" />
+          </Key>
+          <Property Name="id_peixe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="nm_peixe" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ds_especie" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ds_descricao" Type="nvarchar" MaxLength="100" />
+          <Property Name="vl_peso" Type="float" />
+          <Property Name="vl_tamanho" Type="int" />
+          <Property Name="ds_data_morte" Type="date" />
+          <Property Name="img" Type="image" />
+          <Property Name="ds_status_saude" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ds_doenca" Type="nvarchar" MaxLength="100" />
+          <Property Name="ds_data_aquisicao" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TB_USUARIO">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nm_usuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="vl_idade" Type="int" Nullable="false" />
+          <Property Name="ds_telefone" Type="nvarchar" MaxLength="11" />
+          <Property Name="nm_nome_usuario" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ds_senha" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ds_sexo" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ds_Pais" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TB_PEIXES_TB_USUARIO">
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="1" />
+          <End Role="TB_PEIXES" Type="Self.TB_PEIXES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="TB_PEIXES">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_peixesModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_PEIXES" EntityType="Self.TB_PEIXES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TB_USUARIO" EntityType="Self.TB_USUARIO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TB_PEIXES_TB_USUARIO" Association="Self.FK_TB_PEIXES_TB_USUARIO">
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+            <End Role="TB_PEIXES" EntitySet="TB_PEIXES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_peixesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TB_PEIXES">
+          <Key>
+            <PropertyRef Name="id_peixe" />
+          </Key>
+          <Property Name="id_peixe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="nm_peixe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ds_especie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ds_descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="vl_peso" Type="Double" />
+          <Property Name="vl_tamanho" Type="Int32" />
+          <Property Name="ds_data_morte" Type="DateTime" Precision="0" />
+          <Property Name="img" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ds_status_saude" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ds_doenca" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ds_data_aquisicao" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="TB_USUARIO" Relationship="Self.FK_TB_PEIXES_TB_USUARIO" FromRole="TB_PEIXES" ToRole="TB_USUARIO" />
+        </EntityType>
+        <EntityType Name="TB_USUARIO">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nm_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="vl_idade" Type="Int32" Nullable="false" />
+          <Property Name="ds_telefone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="nm_nome_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ds_senha" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ds_sexo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ds_Pais" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TB_PEIXES" Relationship="Self.FK_TB_PEIXES_TB_USUARIO" FromRole="TB_USUARIO" ToRole="TB_PEIXES" />
+        </EntityType>
+        <Association Name="FK_TB_PEIXES_TB_USUARIO">
+          <End Role="TB_USUARIO" Type="Self.TB_USUARIO" Multiplicity="1" />
+          <End Role="TB_PEIXES" Type="Self.TB_PEIXES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TB_USUARIO">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="TB_PEIXES">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_peixesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TB_PEIXES" EntityType="Self.TB_PEIXES" />
+          <EntitySet Name="TB_USUARIO" EntityType="Self.TB_USUARIO" />
+          <AssociationSet Name="FK_TB_PEIXES_TB_USUARIO" Association="Self.FK_TB_PEIXES_TB_USUARIO">
+            <End Role="TB_USUARIO" EntitySet="TB_USUARIO" />
+            <End Role="TB_PEIXES" EntitySet="TB_PEIXES" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_peixesModelStoreContainer" CdmEntityContainer="db_peixesEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="db_peixesModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_PEIXES">
+            <EntityTypeMapping TypeName="db_peixesModel.TB_PEIXES">
+              <MappingFragment StoreEntitySet="TB_PEIXES">
+                <ScalarProperty Name="id_peixe" ColumnName="id_peixe" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="nm_peixe" ColumnName="nm_peixe" />
+                <ScalarProperty Name="ds_especie" ColumnName="ds_especie" />
+                <ScalarProperty Name="ds_descricao" ColumnName="ds_descricao" />
+                <ScalarProperty Name="vl_peso" ColumnName="vl_peso" />
+                <ScalarProperty Name="vl_tamanho" ColumnName="vl_tamanho" />
+                <ScalarProperty Name="ds_data_morte" ColumnName="ds_data_morte" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="ds_status_saude" ColumnName="ds_status_saude" />
+                <ScalarProperty Name="ds_doenca" ColumnName="ds_doenca" />
+                <ScalarProperty Name="ds_data_aquisicao" ColumnName="ds_data_aquisicao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TB_USUARIO">
+            <EntityTypeMapping TypeName="db_peixesModel.TB_USUARIO">
+              <MappingFragment StoreEntitySet="TB_USUARIO">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="nm_usuario" ColumnName="nm_usuario" />
+                <ScalarProperty Name="vl_idade" ColumnName="vl_idade" />
+                <ScalarProperty Name="ds_telefone" ColumnName="ds_telefone" />
+                <ScalarProperty Name="nm_nome_usuario" ColumnName="nm_nome_usuario" />
+                <ScalarProperty Name="ds_senha" ColumnName="ds_senha" />
+                <ScalarProperty Name="ds_sexo" ColumnName="ds_sexo" />
+                <ScalarProperty Name="ds_Pais" ColumnName="ds_Pais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
