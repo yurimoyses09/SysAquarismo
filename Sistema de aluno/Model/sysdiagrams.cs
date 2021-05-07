@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Sistema_de_aluno
+namespace Sistema_de_aluno.Model
 {
     using System;
     using System.Collections.Generic;

@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Linq;
 using System.Data.SqlTypes;
+using Sistema_de_aluno.Model;
 
 namespace Sistema_de_aluno
 {

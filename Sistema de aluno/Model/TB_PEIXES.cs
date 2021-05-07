@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Sistema_de_aluno
+namespace Sistema_de_aluno.Model
 {
     using System;
     using System.Collections.Generic;
@@ -26,8 +26,7 @@ namespace Sistema_de_aluno
         public string ds_status_saude { get; set; }
         public string ds_doenca { get; set; }
         public System.DateTime ds_data_aquisicao { get; set; }
-        public string ds_sexo { get; set; }
-
-    public virtual TB_USUARIO TB_USUARIO { get; set; }
+    
+        public virtual TB_USUARIO TB_USUARIO { get; set; }
     }
 }
