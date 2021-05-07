@@ -81,11 +81,6 @@ namespace Sistema_de_aluno
             cbSexo.SelectedIndex = -1;
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnUploadFoto_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
@@ -117,12 +112,15 @@ namespace Sistema_de_aluno
                     try
                     {
                         sqlConn.Open();
-                        string strQuerySelectPeixe = @"SELECT nm_peixe FROM TB_PEIXES WHERE nm_peixe = @name";
+                        string strQuerySelectPeixe = @"SELECT nm_peixe FROM TB_PEIXES WHERE nm_peixe = @name_peixe";
 
-                        SqlCommand cmd = new SqlCommand();
-                        cmd.Connection = sqlConn;
-                        cmd.CommandText = strQuerySelectPeixe;
-                        cmd.Parameters.AddWithValue("@name", txtNomePeixe.Text);
+                        SqlCommand cmd = new SqlCommand
+                        {
+                            Connection = sqlConn,
+                            CommandText = strQuerySelectPeixe
+                        };
+
+                        cmd.Parameters.AddWithValue("@name_peixe", txtNomePeixe.Text);
                         SqlDataReader registro = cmd.ExecuteReader();
 
                         if (!registro.HasRows)
@@ -190,31 +188,29 @@ namespace Sistema_de_aluno
         private void cbStatusPeixe_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbStatusPeixe.DropDownStyle = ComboBoxStyle.DropDownList;
-            if (cbStatusPeixe.Text != "Faleceu")
-            {
-                lblDataMorte.Visible = false;
-                txtDataMorte.Visible = false;
-
-            } if (cbStatusPeixe.Text == "Doente")
-            {
-                lblDataMorte.Visible = false;
-                txtDataMorte.Visible = false;
-
-                lblDescicaoDoenca.Visible = true;
-                txtDescricaoDoenca.Visible = true;
-
-                txtDataMorte.Text = null;
-
-            } if (cbStatusPeixe.Text == "Faleceu") 
+            if (cbStatusPeixe.Text == "Faleceu")
             {
                 lblDataMorte.Visible = true;
                 txtDataMorte.Visible = true;
 
                 lblDescicaoDoenca.Visible = false;
                 txtDescricaoDoenca.Visible = false;
-            }
+            } else if (cbStatusPeixe.Text == "Doente")
+            {
+                lblDataMorte.Visible = false;
+                txtDataMorte.Visible = false;
 
-        }
+                lblDescicaoDoenca.Visible = true;
+                txtDescricaoDoenca.Visible = true;
+            } else if (cbStatusPeixe.Text == "Saudável") 
+            {
+                lblDescicaoDoenca.Visible = false;
+                txtDescricaoDoenca.Visible = false;
+
+                lblDataMorte.Visible = false;
+                txtDataMorte.Visible = false;
+            }
+        }// Mostra ou nao uma opcao dependendo da escolha do Status do peixe
 
         private void TelaInicial_Load(object sender, EventArgs e)
         {
@@ -226,20 +222,11 @@ namespace Sistema_de_aluno
             Form1 form = new Form1();
             form.Visible = false;
 
-            MessageBox.Show($"ATÉ BREVE");
+            MessageBox.Show($"ATÉ BREVE {lblUserLogado.Text}");
 
-            this.Visible = false;
+            Visible = false;
 
-        }
-
-        private void pbImagemPeixe_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-        }
+        }// Mesagem quando o usuario vai para tela inicial
 
         private void cbPeixesDoUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -251,9 +238,9 @@ namespace Sistema_de_aluno
             cbTamanhoPeixe.DropDownStyle = ComboBoxStyle.DropDownList;
             if (cbTamanhoPeixe.Text == String.Empty)
             {
-                cbTamanhoPeixe.Text = null;
+                cbTamanhoPeixe.Text = "";
             }
-        }
+        }// Valida se valor do tamanho do peixe é vazio
 
         private void cbSexo_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -264,7 +251,7 @@ namespace Sistema_de_aluno
         {
             if (txtPesoPeixe.Text == String.Empty)
             {
-                txtPesoPeixe.Text = null;
+                txtPesoPeixe.Text = "";
             }
         }
 
@@ -312,12 +299,10 @@ namespace Sistema_de_aluno
                         tela.txtDescricaoDoente.Text = read["ds_doenca"].ToString();
                         tela.txtAquisicaoData.Text = read["ds_data_aquisicao"].ToString().Substring(0, 10);
                         tela.cbSexo.Text = read["ds_sexo"].ToString();
-
-
                     }
-                } catch (Exception ex)
+                } catch (Exception)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Erro vai visualizar seus peixes");
                 } finally 
                 {
                     if (sqlConnection.State == ConnectionState.Open) 
@@ -327,19 +312,19 @@ namespace Sistema_de_aluno
                 }
             }
             tela.Visible = true;
-        }
+        }// Abre uma tela com as informacoes do peixe selecionado
 
         private void txtDataAquisicaoPeixe_TextChanged(object sender, EventArgs e)
         {
             dataMorte.AutoPopDelay = 2000;
             dataMorte.SetToolTip(this.txtDataAquisicaoPeixe, "Formato valido dia/mes/ano, SEM AS BARRAS");
-        }
+        }// mostra texto sobre formato da data
 
         private void txtDataMorte_TextChanged(object sender, EventArgs e)
         {
             dataAquisicao.AutoPopDelay = 2000;
             dataAquisicao.SetToolTip(this.txtDataMorte, "Formato valido dia/mes/ano, SEM AS BARRAS");
-        }
+        }// mostra texto sobre formato da data
 
         private void txtDataAquisicaoPeixe_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -351,7 +336,7 @@ namespace Sistema_de_aluno
             {
                 e.Handled = false;
             }
-        }
+        }// Nao deixa digitar letras no campo de data de aquisição
 
         private void txtDataMorte_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -363,6 +348,6 @@ namespace Sistema_de_aluno
             {
                 e.Handled = false;
             }
-        }
+        }// Nao deixa digitar letras no campo de data de aquisição
     }
 }

@@ -84,27 +84,28 @@ namespace Sistema_de_aluno
             }
         }
 
-        public string ValidaDataMorte(DateTime dataMorte)
+        public string ValidaDataMorte(string dataMorte)
         {
-            if (dataMorte == null)
+            if (dataMorte == String.Empty) 
             {
-                dataMorte = DateTime.Parse(null);
-            } else
-            {
-                string dia = dataMorte.Substring(0, 2);
-                string mes = dataMorte.Substring(2, 2);
-                string ano = dataMorte.Substring(4, 4);
-
-                if (int.Parse(dia) > 31 && int.Parse(mes) > 12 && (int.Parse(ano) < 0 && int.Parse(ano) > 2021))
-                {
-                    MessageBox.Show($"Valor de data errada {dia + "/" + mes + "/" + ano}", "Formato errado");
-                } else
-                {
-                    dataMorte = DateTime.Parse($"{dia + "/" + mes + "/" + ano}");
-                }
+                dataMorte = DateTime.MinValue.ToString();
+                return dataMorte;
             }
+            string dia = dataMorte.Substring(0, 2);
+            string mes = dataMorte.Substring(2, 2);
+            string ano = dataMorte.Substring(4, 4);
+
+            if (int.Parse(dia) > 31 && int.Parse(dia) < 0 || int.Parse(mes) > 12 && int.Parse(dia) < 1 || int.Parse(ano) > DateTime.Now.Year && int.Parse(dia) < 0)
+            {
+                MessageBox.Show($"Valor de data errada {dia + "/" + mes + "/" + ano}", "Formato errado");
+            }
+            else
+            {
+                dataMorte = $"{dia + "/" + mes + "/" + ano}";
+            }
+
             return dataMorte;
-        }
+        }// Valida data de Aquisisao
 
         public string ValidaDataAquisicao(string ValordataAquisicao)
         {
@@ -117,10 +118,14 @@ namespace Sistema_de_aluno
                 string mes = ValordataAquisicao.Substring(2, 2);
                 string ano = ValordataAquisicao.Substring(4, 4);
 
+                if (int.Parse(dia) > 31 && int.Parse(dia) < 0 || int.Parse(mes) > 12 && int.Parse(dia) < 1 || int.Parse(ano) > DateTime.Now.Year && int.Parse(dia) < 0)
+                {
+                    MessageBox.Show($"Valor de data errada {dia + "/" + mes + "/" + ano}", "Formato errado");
+                }
                 ValordataAquisicao = $"{dia + "/" + mes + "/" + ano}";
             }
 
             return ValordataAquisicao;
-        }
+        }// Valida data de Aquisisao
     }
 }

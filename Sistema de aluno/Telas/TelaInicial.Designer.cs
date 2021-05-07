@@ -178,7 +178,6 @@ namespace Sistema_de_aluno
             this.txtDescricaoPeixe.Name = "txtDescricaoPeixe";
             this.txtDescricaoPeixe.Size = new System.Drawing.Size(239, 74);
             this.txtDescricaoPeixe.TabIndex = 8;
-            this.txtDescricaoPeixe.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // txtPesoPeixe
             // 
@@ -284,7 +283,6 @@ namespace Sistema_de_aluno
             this.pbImagemPeixe.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImagemPeixe.TabIndex = 19;
             this.pbImagemPeixe.TabStop = false;
-            this.pbImagemPeixe.Click += new System.EventHandler(this.pbImagemPeixe_Click);
             // 
             // btnUploadFoto
             // 
@@ -308,7 +306,6 @@ namespace Sistema_de_aluno
             this.label10.Size = new System.Drawing.Size(299, 40);
             this.label10.TabIndex = 21;
             this.label10.Text = "Cadastre Seu Peixe Aqui";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // lblDataMorte
             // 
