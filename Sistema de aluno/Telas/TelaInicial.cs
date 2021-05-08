@@ -62,7 +62,6 @@ namespace Sistema_de_aluno
                         conn.Close();
                     }
                 }
-
             }
         }
 

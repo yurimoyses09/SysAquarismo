@@ -41,6 +41,8 @@ namespace Sistema_de_aluno
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnRedefinirSenha = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +52,7 @@ namespace Sistema_de_aluno
             this.btnLoginTelaInicial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLoginTelaInicial.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnLoginTelaInicial.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLoginTelaInicial.Location = new System.Drawing.Point(81, 410);
+            this.btnLoginTelaInicial.Location = new System.Drawing.Point(12, 410);
             this.btnLoginTelaInicial.Name = "btnLoginTelaInicial";
             this.btnLoginTelaInicial.Size = new System.Drawing.Size(134, 35);
             this.btnLoginTelaInicial.TabIndex = 0;
@@ -64,7 +66,7 @@ namespace Sistema_de_aluno
             this.btbCadastrarTelaInicial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btbCadastrarTelaInicial.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btbCadastrarTelaInicial.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btbCadastrarTelaInicial.Location = new System.Drawing.Point(238, 410);
+            this.btbCadastrarTelaInicial.Location = new System.Drawing.Point(290, 410);
             this.btbCadastrarTelaInicial.Name = "btbCadastrarTelaInicial";
             this.btbCadastrarTelaInicial.Size = new System.Drawing.Size(134, 35);
             this.btbCadastrarTelaInicial.TabIndex = 1;
@@ -139,7 +141,7 @@ namespace Sistema_de_aluno
             // 
             this.lblTitulo.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.lblTitulo.Font = new System.Drawing.Font("Chiller", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(136, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(136, -7);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(167, 48);
             this.lblTitulo.TabIndex = 9;
@@ -150,7 +152,7 @@ namespace Sistema_de_aluno
             // 
             this.label1.BackColor = System.Drawing.Color.SkyBlue;
             this.label1.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(237, 448);
+            this.label1.Location = new System.Drawing.Point(287, 448);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 15);
             this.label1.TabIndex = 11;
@@ -160,12 +162,37 @@ namespace Sistema_de_aluno
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Sistema_de_aluno.Properties.Resources.c4058dbab9bfb27555c69a39369e7075;
-            this.pictureBox1.Location = new System.Drawing.Point(71, 60);
+            this.pictureBox1.Location = new System.Drawing.Point(78, 44);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(291, 209);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
+            // 
+            // btnRedefinirSenha
+            // 
+            this.btnRedefinirSenha.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnRedefinirSenha.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRedefinirSenha.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.btnRedefinirSenha.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRedefinirSenha.Location = new System.Drawing.Point(152, 410);
+            this.btnRedefinirSenha.Name = "btnRedefinirSenha";
+            this.btnRedefinirSenha.Size = new System.Drawing.Size(134, 35);
+            this.btnRedefinirSenha.TabIndex = 12;
+            this.btnRedefinirSenha.Text = "Redefinir senha";
+            this.btnRedefinirSenha.UseVisualStyleBackColor = false;
+            this.btnRedefinirSenha.Click += new System.EventHandler(this.btnRedefinirSenha_Click);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.SkyBlue;
+            this.label2.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(149, 448);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(135, 15);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Esqueceu Senha";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Form1
             // 
@@ -173,6 +200,8 @@ namespace Sistema_de_aluno
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(436, 470);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnRedefinirSenha);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblTitulo);
@@ -209,6 +238,8 @@ namespace Sistema_de_aluno
     private System.Windows.Forms.PictureBox pictureBox1;
     private System.Windows.Forms.Label label1;
     public System.Windows.Forms.TextBox txtNomeUsuario;
+    private System.Windows.Forms.Button btnRedefinirSenha;
+    private System.Windows.Forms.Label label2;
   }
     }
 

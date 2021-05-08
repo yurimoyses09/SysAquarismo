@@ -94,6 +94,12 @@
     <Compile Include="Telas\TelaCadastro.Designer.cs">
       <DependentUpon>TelaCadastro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Telas\TelaInfoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\TelaInfoUsuario.Designer.cs">
+      <DependentUpon>TelaInfoUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Telas\TelaInicial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     </Compile>
     <EmbeddedResource Include="Telas\TelaCadastro.resx">
       <DependentUpon>TelaCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Telas\TelaInfoUsuario.resx">
+      <DependentUpon>TelaInfoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\TelaInicial.resx">
       <DependentUpon>TelaInicial.cs</DependentUpon>

@@ -33,6 +33,7 @@ namespace Sistema_de_aluno
                 cbPais.Text
             );
 
+
         }// Realiza cadrastro de usuario no sistema
 
         private void btnVoltarTelaInicial_Click(object sender, EventArgs e)
@@ -101,20 +102,21 @@ namespace Sistema_de_aluno
         {
             tTTamanhoSenha.SetToolTip(this.txtSenhaUsuarioCadastro, "Senha deve ter mais que 4 digitos");
             var txt = txtSenhaUsuarioCadastro.Text.Substring(0, txtSenhaUsuarioCadastro.Text.Length);
-            if (txt.Length >= 4) 
-            {
-                txtSenhaRepetidaCadastro.Visible = true;
-                txtSenhaRepetidaCadastro.ReadOnly = false;
-            } else
-            {
-                txtSenhaRepetidaCadastro.ReadOnly = true;
-            }
-
-            if (txt.Length == 0) 
+            if (txt.Length == 0 || txt.Length < 4)
             {
                 txtSenhaRepetidaCadastro.Visible = false;
                 txtSenhaRepetidaCadastro.Text = String.Empty;
             }
+            else if (txt.Length >= 4)
+            {
+                txtSenhaRepetidaCadastro.Visible = true;
+                txtSenhaRepetidaCadastro.ReadOnly = false;
+            }
+            else 
+            {
+                txtSenhaRepetidaCadastro.ReadOnly = true;
+            }
+
         }
     }
 }

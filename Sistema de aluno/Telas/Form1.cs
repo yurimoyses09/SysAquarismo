@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sistema_de_aluno.Telas;
+using System;
 using System.Windows.Forms;
 
 namespace Sistema_de_aluno
@@ -47,5 +48,13 @@ namespace Sistema_de_aluno
             txtSenha.Text = String.Empty;
             txtSenhaRepetida.Text = String.Empty;
         }// Apaga campos
+
+        private void btnRedefinirSenha_Click(object sender, EventArgs e)
+        {
+            TelaInfoUsuario tl = new TelaInfoUsuario();
+
+            tl.Show();
+
+        }
     }
 }
