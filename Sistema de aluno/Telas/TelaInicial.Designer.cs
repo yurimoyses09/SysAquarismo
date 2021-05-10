@@ -70,6 +70,7 @@ namespace Sistema_de_aluno
             this.txtDataMorte = new System.Windows.Forms.TextBox();
             this.dataMorte = new System.Windows.Forms.ToolTip(this.components);
             this.dataAquisicao = new System.Windows.Forms.ToolTip(this.components);
+            this.btnDeletar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagemPeixe)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -464,12 +465,13 @@ namespace Sistema_de_aluno
             // 
             // btnVerPeixe
             // 
-            this.btnVerPeixe.BackColor = System.Drawing.Color.PeachPuff;
+            this.btnVerPeixe.BackColor = System.Drawing.Color.Chartreuse;
             this.btnVerPeixe.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVerPeixe.Enabled = false;
             this.btnVerPeixe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerPeixe.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerPeixe.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnVerPeixe.Location = new System.Drawing.Point(923, 149);
+            this.btnVerPeixe.Location = new System.Drawing.Point(838, 179);
             this.btnVerPeixe.Name = "btnVerPeixe";
             this.btnVerPeixe.Size = new System.Drawing.Size(75, 28);
             this.btnVerPeixe.TabIndex = 34;
@@ -534,6 +536,22 @@ namespace Sistema_de_aluno
             this.txtDataMorte.TextChanged += new System.EventHandler(this.txtDataMorte_TextChanged);
             this.txtDataMorte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDataMorte_KeyPress);
             // 
+            // btnDeletar
+            // 
+            this.btnDeletar.BackColor = System.Drawing.Color.Crimson;
+            this.btnDeletar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeletar.Enabled = false;
+            this.btnDeletar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeletar.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnDeletar.Location = new System.Drawing.Point(757, 179);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Size = new System.Drawing.Size(75, 28);
+            this.btnDeletar.TabIndex = 38;
+            this.btnDeletar.Text = "Deletar";
+            this.btnDeletar.UseVisualStyleBackColor = false;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
+            // 
             // TelaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -542,6 +560,7 @@ namespace Sistema_de_aluno
             this.BackgroundImage = global::Sistema_de_aluno.Properties.Resources.maxresdefault;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1018, 646);
+            this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.txtDataMorte);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.btnVerPeixe);
@@ -629,5 +648,6 @@ namespace Sistema_de_aluno
     private System.Windows.Forms.TextBox txtDataMorte;
     private System.Windows.Forms.ToolTip dataMorte;
     private System.Windows.Forms.ToolTip dataAquisicao;
+    private System.Windows.Forms.Button btnDeletar;
   }
   }

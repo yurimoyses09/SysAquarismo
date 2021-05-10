@@ -49,13 +49,14 @@ namespace Sistema_de_aluno
                         while (dataReader.Read())
                         {
                             cbPeixesDoUsuario.Items.Add(dataReader[0].ToString());
-
                         }
                     }
-                } catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                } finally
+                }
+                finally
                 {
                     if (conn.State == ConnectionState.Open)
                     {
@@ -63,7 +64,7 @@ namespace Sistema_de_aluno
                     }
                 }
             }
-        }
+        }// Carrega os peixes do usuario assim q ele loga no sistema
 
         public void ApagaCampos()
         {
@@ -78,7 +79,7 @@ namespace Sistema_de_aluno
             txtDataAquisicaoPeixe.Text = String.Empty;
             pbImagemPeixe.Image = null;
             cbSexo.SelectedIndex = -1;
-        }
+        }// Metodo que apaga os campos depois de preenchidos e peixe ser cadastrado
 
         private void btnUploadFoto_Click(object sender, EventArgs e)
         {
@@ -108,20 +109,19 @@ namespace Sistema_de_aluno
 
                 if (txtEspecie.Text != String.Empty && txtDataAquisicaoPeixe.Text != String.Empty && txtNomePeixe.Text != String.Empty && cbStatusPeixe.Text != String.Empty && cbSexo.Text != String.Empty)
                 {
+                    sqlConn.Open();
+                    string strQuerySelectPeixe = @"SELECT nm_peixe FROM TB_PEIXES WHERE nm_peixe = @name_peixe";
+
+                    SqlCommand cmd = new SqlCommand
+                    {
+                        Connection = sqlConn,
+                        CommandText = strQuerySelectPeixe
+                    };
+
+                    cmd.Parameters.AddWithValue("@name_peixe", txtNomePeixe.Text);
+                    SqlDataReader registro = cmd.ExecuteReader();
                     try
                     {
-                        sqlConn.Open();
-                        string strQuerySelectPeixe = @"SELECT nm_peixe FROM TB_PEIXES WHERE nm_peixe = @name_peixe";
-
-                        SqlCommand cmd = new SqlCommand
-                        {
-                            Connection = sqlConn,
-                            CommandText = strQuerySelectPeixe
-                        };
-
-                        cmd.Parameters.AddWithValue("@name_peixe", txtNomePeixe.Text);
-                        SqlDataReader registro = cmd.ExecuteReader();
-
                         if (!registro.HasRows)
                         {
                             string strQuerySelect = @"SELECT id_usuario FROM TB_USUARIO WHERE nm_nome_usuario = @nameUser";
@@ -156,33 +156,43 @@ namespace Sistema_de_aluno
 
                             commandInsert.CommandType = CommandType.Text;
 
-                            commandInsert.ExecuteNonQuery();
+                            int i = commandInsert.ExecuteNonQuery();
+                            if (i == 1)
+                            {
+                                MessageBox.Show($"Peixe cadastrado com sucesso!! {txtNomePeixe.Text}", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                cbPeixesDoUsuario.Items.Clear();
 
-                            MessageBox.Show($"Peixe cadastrado com sucesso!! {txtNomePeixe.Text}", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            cbPeixesDoUsuario.Items.Clear();
-
-                            carregaPeixes();
-                            ApagaCampos();
-                        } else
-                        {
-                            MessageBox.Show($"Peixe já cadastrado!! {txtNomePeixe.Text}", "Peixe já existente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                carregaPeixes();
+                                ApagaCampos();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Erro ao cadastrar peixe {txtNomePeixe.Text}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
-                    } catch (Exception ex)
+                        else
+                        {
+                            MessageBox.Show($"Esse peixe já está cadastrado!! {txtNomePeixe.Text}", "Peixe já existente", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    catch (Exception ex)
                     {
                         MessageBox.Show("Error: " + ex.Message);
-                    } finally
+                    }
+                    finally
                     {
                         if (sqlConn.State == ConnectionState.Open)
                         {
                             sqlConn.Close();
                         }
                     }
-                } else
+                }
+                else
                 {
                     MessageBox.Show($"Alguns campos obrigatórios estão vazios", "Campos Vazios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-        }
+        }// Botao que cadastra peixe no sistema
 
         private void cbStatusPeixe_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -194,14 +204,16 @@ namespace Sistema_de_aluno
 
                 lblDescicaoDoenca.Visible = false;
                 txtDescricaoDoenca.Visible = false;
-            } else if (cbStatusPeixe.Text == "Doente")
+            }
+            else if (cbStatusPeixe.Text == "Doente")
             {
                 lblDataMorte.Visible = false;
                 txtDataMorte.Visible = false;
 
                 lblDescicaoDoenca.Visible = true;
                 txtDescricaoDoenca.Visible = true;
-            } else if (cbStatusPeixe.Text == "Saudável") 
+            }
+            else if (cbStatusPeixe.Text == "Saudável")
             {
                 lblDescicaoDoenca.Visible = false;
                 txtDescricaoDoenca.Visible = false;
@@ -214,7 +226,7 @@ namespace Sistema_de_aluno
         private void TelaInicial_Load(object sender, EventArgs e)
         {
             carregaPeixes();
-        }
+        }// Carrega todos os peixes do usuario que logou
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -230,6 +242,17 @@ namespace Sistema_de_aluno
         private void cbPeixesDoUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbPeixesDoUsuario.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            if (cbPeixesDoUsuario.SelectedIndex == -1)
+            {
+                btnVerPeixe.Enabled = false;
+                btnDeletar.Enabled = false;
+            }
+            else
+            {
+                btnDeletar.Enabled = true;
+                btnVerPeixe.Enabled = true;
+            }
         }
 
         private void cbTamanhoPeixe_SelectedIndexChanged(object sender, EventArgs e)
@@ -256,11 +279,11 @@ namespace Sistema_de_aluno
 
         private void btnVerPeixe_Click(object sender, EventArgs e)
         {
-            TelaPeixe tela = new TelaPeixe();
+            TelaPeixe tela = new TelaPeixe(lblUserLogado.Text);
 
             string connectionString = @"Server=DESKTOP-DH4FP6N; Database=db_peixes;Integrated Security=SSPI;";
 
-            using (SqlConnection sqlConnection = new SqlConnection(connectionString)) 
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
                 try
                 {
@@ -283,13 +306,18 @@ namespace Sistema_de_aluno
                         tela.txtPeso.Text = read["vl_peso"].ToString();
                         tela.cbTamanho.Text = read["vl_tamanho"].ToString();
                         tela.txtDataMorte.Text = read["ds_data_morte"].ToString().Substring(0, 10);
+                        if (txtDataMorte.Text == "01/01/0001")
+                        {
+                            tela.txtDescricaoDoente.ReadOnly = true;
+                        }
                         var foto = read["img"];
                         MemoryStream memoria = new MemoryStream((byte[])foto);
 
                         if (memoria.Length > 0)
                         {
                             tela.pBImagem.Image = Image.FromStream(memoria);
-                        } else
+                        }
+                        else
                         {
                             tela.pBImagem.Image = null;
 
@@ -298,13 +326,16 @@ namespace Sistema_de_aluno
                         tela.txtDescricaoDoente.Text = read["ds_doenca"].ToString();
                         tela.txtAquisicaoData.Text = read["ds_data_aquisicao"].ToString().Substring(0, 10);
                         tela.cbSexo.Text = read["ds_sexo"].ToString();
+                        read.Close();
                     }
-                } catch (Exception)
+                }
+                catch (Exception)
                 {
                     MessageBox.Show("Erro vai visualizar seus peixes");
-                } finally 
+                }
+                finally
                 {
-                    if (sqlConnection.State == ConnectionState.Open) 
+                    if (sqlConnection.State == ConnectionState.Open)
                     {
                         sqlConnection.Close();
                     }
@@ -331,7 +362,8 @@ namespace Sistema_de_aluno
             {
                 e.Handled = true;
                 //MessageBox.Show("Só permitido valores numericos", "Valor Incorreto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else
+            }
+            else
             {
                 e.Handled = false;
             }
@@ -343,10 +375,97 @@ namespace Sistema_de_aluno
             {
                 e.Handled = true;
                 //MessageBox.Show("Só permitido valores numericos", "Valor Incorreto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            } else
+            }
+            else
             {
                 e.Handled = false;
             }
         }// Nao deixa digitar letras no campo de data de aquisição
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            if (cbPeixesDoUsuario.SelectedIndex == 0) 
+            {
+                cbPeixesDoUsuario.Enabled = false;
+            }
+            cbPeixesDoUsuario.Enabled = true;
+
+            string connectionString = @"Server=DESKTOP-DH4FP6N; Database=db_peixes;Integrated Security=SSPI;";
+            
+            using (SqlConnection conn = new SqlConnection(connectionString)) 
+            {
+                conn.Open();
+                string strQuerySelectUser = @"SELECT id_usuario FROM TB_USUARIO WHERE nm_nome_usuario = @nameUser";
+
+                SqlCommand CommandSelectIdUser = new SqlCommand(strQuerySelectUser, conn);
+                CommandSelectIdUser.Parameters.AddWithValue("@nameUser", lblUserLogado.Text);
+
+                try
+                {
+                    var read = CommandSelectIdUser.ExecuteReader();
+
+                    read.Read();
+                    var id_usuario = read["id_usuario"].ToString();
+                    read.Close();
+
+                    string strQuerySelect = $"SELECT id_peixe FROM TB_PEIXES WHERE id_usuario = '{id_usuario}' AND nm_peixe = @nome_peixe";
+
+                    SqlCommand CommandSelectIdPeixe = new SqlCommand(strQuerySelect, conn);
+                    CommandSelectIdPeixe.Parameters.AddWithValue("@nome_peixe", cbPeixesDoUsuario.Text);
+
+                    try
+                    {
+                        read = CommandSelectIdPeixe.ExecuteReader();
+
+                        read.Read();
+                        var id_peixe = read["id_peixe"].ToString();
+                        read.Close();
+
+                        string DeletarPeixe = $"DELETE FROM TB_PEIXES WHERE id_usuario = @id_usuario AND id_peixe = @id_peixe";
+
+                        SqlCommand cmd = new SqlCommand(DeletarPeixe, conn);
+
+                        cmd.Parameters.AddWithValue("@id_usuario", id_usuario);
+                        cmd.Parameters.AddWithValue("@id_peixe", id_peixe);
+
+                        cmd.CommandType = CommandType.Text;
+
+                        try
+                        {
+                            int i = cmd.ExecuteNonQuery();
+                            if (i == 1)
+                            {
+                                MessageBox.Show($"Peixe {cbPeixesDoUsuario.Text} Deletado", "Deletado com Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                cbPeixesDoUsuario.Items.Clear();
+
+                                carregaPeixes();
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally 
+                {
+                    if (conn.State == ConnectionState.Open) 
+                    {
+                        conn.Close();
+                    }
+                }
+            }
+
+        }// Deleta peixe selecionado no combo
     }
 }

@@ -73,6 +73,16 @@ namespace Sistema_de_aluno.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3615b8c01dfa0f17d68b752ffe888304 {
+            get {
+                object obj = ResourceManager.GetObject("3615b8c01dfa0f17d68b752ffe888304", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _8a61e15cfc1ece8259b2a1b214624375 {
             get {
                 object obj = ResourceManager.GetObject("8a61e15cfc1ece8259b2a1b214624375", resourceCulture);

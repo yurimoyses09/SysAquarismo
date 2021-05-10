@@ -85,7 +85,7 @@ namespace Sistema_de_aluno.Telas
 
                 txtNomeLogin.Text = String.Empty;
             }
-        }// Mostra ou mostra as opcoes de mudar senha 
+        }// Mostra ou nao mostra as opcoes de mudar senha 
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -141,6 +141,6 @@ namespace Sistema_de_aluno.Telas
                 txtSenhaRedefinida.Text = String.Empty;
                 txtSenhaRedefinida2.Text = String.Empty;
             }
-        }
+        } // Faz Update da senha do usuario
     }
 }

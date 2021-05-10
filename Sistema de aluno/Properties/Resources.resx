@@ -166,4 +166,7 @@
   <data name="assets-15-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\assets-15-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="3615b8c01dfa0f17d68b752ffe888304" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\3615b8c01dfa0f17d68b752ffe888304.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
