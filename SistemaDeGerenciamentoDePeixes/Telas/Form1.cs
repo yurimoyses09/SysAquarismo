@@ -1,8 +1,8 @@
-﻿using Sistema_de_aluno.Telas;
+﻿using SistemaDeGerenciamentoDePeixes.Commands;
 using System;
 using System.Windows.Forms;
 
-namespace Sistema_de_aluno
+namespace SistemaDeGerenciamentoDePeixes.Telas
 {
     public partial class Form1 : Form
     {
@@ -27,7 +27,7 @@ namespace Sistema_de_aluno
 
         public void btnLoginTelaInicial_Click(object sender, EventArgs e)
         {
-            Commands commands = new Commands();
+            Command commands = new Command();
             commands.RealizaLogin(txtNomeUsuario.Text, txtSenha.Text, txtSenhaRepetida.Text);
 
             apagaCampos();

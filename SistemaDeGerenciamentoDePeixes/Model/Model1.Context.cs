@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Sistema_de_aluno.Model
+namespace SistemaDeGerenciamentoDePeixes.Model
 {
     using System;
     using System.Data.Entity;

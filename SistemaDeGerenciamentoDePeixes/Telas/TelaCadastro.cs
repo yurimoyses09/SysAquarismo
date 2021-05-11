@@ -1,8 +1,9 @@
-﻿using System;
+﻿using SistemaDeGerenciamentoDePeixes.Commands;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Sistema_de_aluno
+namespace SistemaDeGerenciamentoDePeixes.Telas
 {
     public partial class TelaCadastro : Form
     {
@@ -20,7 +21,7 @@ namespace Sistema_de_aluno
 
         private void btbCadastrarUsuario_Click(object sender, EventArgs e)
         {
-            Commands commands = new Commands();
+            Command commands = new Command();
             commands.CadastroUsuario
             (
                 txtNomeUsuarioCadastro.Text,

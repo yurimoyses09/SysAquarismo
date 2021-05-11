@@ -1,10 +1,10 @@
 ﻿
-namespace Sistema_de_aluno
-    {
+namespace SistemaDeGerenciamentoDePeixes.Telas
+{
     partial class Form1
-        {
+    {
         /// <summary>
-        /// Required designer variable.
+        /// Required designer variable.System.Resources.MissingManifestResourceException
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
@@ -13,13 +13,13 @@ namespace Sistema_de_aluno
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
             {
-        if (disposing && (components != null))
-            {
-        components.Dispose();
+                components.Dispose();
             }
-        base.Dispose(disposing);
-            }
+            base.Dispose(disposing);
+        }
 
         #region Windows Form Designer generated code
 
@@ -28,7 +28,7 @@ namespace Sistema_de_aluno
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
-            {
+        {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.btnLoginTelaInicial = new System.Windows.Forms.Button();
             this.btbCadastrarTelaInicial = new System.Windows.Forms.Button();
@@ -161,7 +161,8 @@ namespace Sistema_de_aluno
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Sistema_de_aluno.Properties.Resources.c4058dbab9bfb27555c69a39369e7075;
+            this.pictureBox1.Image = global::SistemaDeGerenciamentoDePeixes.Properties.Resources.c4058dbab9bfb27555c69a39369e7075;
+            this.pictureBox1.InitialImage = global::SistemaDeGerenciamentoDePeixes.Properties.Resources.c4058dbab9bfb27555c69a39369e7075;
             this.pictureBox1.Location = new System.Drawing.Point(78, 44);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(291, 209);
@@ -223,23 +224,23 @@ namespace Sistema_de_aluno
             this.ResumeLayout(false);
             this.PerformLayout();
 
-            }
+        }
 
-    #endregion
+        #endregion
 
-    private System.Windows.Forms.Button btnLoginTelaInicial;
-    private System.Windows.Forms.Button btbCadastrarTelaInicial;
-    private System.Windows.Forms.Label lblNomeUsuario;
-    private System.Windows.Forms.Label lblSenha;
-    private System.Windows.Forms.Label lblSenhaRepetida;
-    private System.Windows.Forms.TextBox txtSenha;
-    private System.Windows.Forms.TextBox txtSenhaRepetida;
-    private System.Windows.Forms.Label lblTitulo;
-    private System.Windows.Forms.PictureBox pictureBox1;
-    private System.Windows.Forms.Label label1;
-    public System.Windows.Forms.TextBox txtNomeUsuario;
-    private System.Windows.Forms.Button btnRedefinirSenha;
-    private System.Windows.Forms.Label label2;
-  }
+        private System.Windows.Forms.Button btnLoginTelaInicial;
+        private System.Windows.Forms.Button btbCadastrarTelaInicial;
+        private System.Windows.Forms.Label lblNomeUsuario;
+        private System.Windows.Forms.Label lblSenha;
+        private System.Windows.Forms.Label lblSenhaRepetida;
+        private System.Windows.Forms.TextBox txtSenha;
+        private System.Windows.Forms.TextBox txtSenhaRepetida;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox txtNomeUsuario;
+        private System.Windows.Forms.Button btnRedefinirSenha;
+        private System.Windows.Forms.Label label2;
     }
+}
 

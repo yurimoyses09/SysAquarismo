@@ -1,34 +1,35 @@
 ﻿
-namespace Sistema_de_aluno
-  {
-  partial class TelaCadastro
+namespace SistemaDeGerenciamentoDePeixes.Telas
+{
+
+    partial class TelaCadastro
     {
-    /// <summary>
-    /// Required designer variable.
-    /// </summary>
-    private System.ComponentModel.IContainer components = null;
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
-    /// <summary>
-    /// Clean up any resources being used.
-    /// </summary>
-    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing)
-      {
-    if (disposing && (components != null))
-      {
-    components.Dispose();
-      }
-    base.Dispose(disposing);
-      }
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
-    #region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-    /// <summary>
-    /// Required method for Designer support - do not modify
-    /// the contents of this method with the code editor.
-    /// </summary>
-    private void InitializeComponent()
-      {
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaCadastro));
             this.btbCadastrarUsuario = new System.Windows.Forms.Button();
@@ -434,7 +435,7 @@ namespace Sistema_de_aluno
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Sistema_de_aluno.Properties.Resources.assets_15_1;
+            this.pictureBox1.Image = global::SistemaDeGerenciamentoDePeixes.Properties.Resources.assets_15_1;
             this.pictureBox1.Location = new System.Drawing.Point(3, 41);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(438, 162);
@@ -481,33 +482,33 @@ namespace Sistema_de_aluno
             this.ResumeLayout(false);
             this.PerformLayout();
 
-      }
+        }
 
-    #endregion
-    private System.Windows.Forms.Button btbCadastrarUsuario;
-    private System.Windows.Forms.Label lblNomeUsuarioCadastro;
-    private System.Windows.Forms.Label lblIdadeUsuarioCadastro;
-    private System.Windows.Forms.Label lblTelefoneUsuarioCadastro;
-    private System.Windows.Forms.Label lblNomeUserCadastro;
-    private System.Windows.Forms.Label lblSenhaCadastro;
-    private System.Windows.Forms.TextBox txtNomeUsuarioCadastro;
-    private System.Windows.Forms.TextBox txtTelefoneCadastroUsuario;
-    private System.Windows.Forms.TextBox txtUserNameCadastro;
-    private System.Windows.Forms.TextBox txtSenhaUsuarioCadastro;
-    private System.Windows.Forms.PictureBox pictureBox1;
-    private System.Windows.Forms.Label lblSenhaRepetidaCadastro;
-    private System.Windows.Forms.TextBox txtSenhaRepetidaCadastro;
-    private System.Windows.Forms.Button btnVoltarTelaInicial;
-    private System.Windows.Forms.Label label2;
-    private System.Windows.Forms.Label label1;
-    private System.Windows.Forms.Label label3;
-    private System.Windows.Forms.ComboBox cbSexo;
-    private System.Windows.Forms.Label label4;
-    private System.Windows.Forms.ComboBox cbIdade;
-    private System.Windows.Forms.ToolTip tTInformacaoNome;
-    private System.Windows.Forms.ToolTip tTTelefone;
-    private System.Windows.Forms.ToolTip tTRepitaSenha;
-    private System.Windows.Forms.ToolTip tTTamanhoSenha;
-    public System.Windows.Forms.ComboBox cbPais;
-  }
-  }
+        #endregion
+        private System.Windows.Forms.Button btbCadastrarUsuario;
+        private System.Windows.Forms.Label lblNomeUsuarioCadastro;
+        private System.Windows.Forms.Label lblIdadeUsuarioCadastro;
+        private System.Windows.Forms.Label lblTelefoneUsuarioCadastro;
+        private System.Windows.Forms.Label lblNomeUserCadastro;
+        private System.Windows.Forms.Label lblSenhaCadastro;
+        private System.Windows.Forms.TextBox txtNomeUsuarioCadastro;
+        private System.Windows.Forms.TextBox txtTelefoneCadastroUsuario;
+        private System.Windows.Forms.TextBox txtUserNameCadastro;
+        private System.Windows.Forms.TextBox txtSenhaUsuarioCadastro;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblSenhaRepetidaCadastro;
+        private System.Windows.Forms.TextBox txtSenhaRepetidaCadastro;
+        private System.Windows.Forms.Button btnVoltarTelaInicial;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbSexo;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbIdade;
+        private System.Windows.Forms.ToolTip tTInformacaoNome;
+        private System.Windows.Forms.ToolTip tTTelefone;
+        private System.Windows.Forms.ToolTip tTRepitaSenha;
+        private System.Windows.Forms.ToolTip tTTamanhoSenha;
+        public System.Windows.Forms.ComboBox cbPais;
+    }
+}

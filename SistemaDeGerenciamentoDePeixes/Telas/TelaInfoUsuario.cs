@@ -1,4 +1,4 @@
-﻿using Sistema_de_aluno.Model;
+﻿using SistemaDeGerenciamentoDePeixes.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sistema_de_aluno.Telas
+namespace SistemaDeGerenciamentoDePeixes.Telas
 {
     public partial class TelaInfoUsuario : Form
     {

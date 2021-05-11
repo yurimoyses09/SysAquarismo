@@ -1,5 +1,5 @@
 ﻿
-namespace Sistema_de_aluno.Telas
+namespace SistemaDeGerenciamentoDePeixes.Telas
 {
   partial class TelaPeixe
   {
@@ -371,7 +371,7 @@ namespace Sistema_de_aluno.Telas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Sistema_de_aluno.Properties.Resources._996a3461932f352502933385beb68f1c;
+            this.BackgroundImage = global::SistemaDeGerenciamentoDePeixes.Properties.Resources._996a3461932f352502933385beb68f1c;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(810, 678);
             this.Controls.Add(this.label1);

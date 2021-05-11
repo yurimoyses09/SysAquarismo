@@ -2,14 +2,14 @@
 using System.Windows.Forms;
 using System.Linq;
 using System.Data.SqlTypes;
-using Sistema_de_aluno.Model;
-using Sistema_de_aluno.Telas;
+using SistemaDeGerenciamentoDePeixes.Model;
 using System.Data.SqlClient;
+using SistemaDeGerenciamentoDePeixes.Telas;
 
-namespace Sistema_de_aluno
+namespace SistemaDeGerenciamentoDePeixes.Commands
 {
 
-    class Commands
+    class Command
     {
         readonly TB_USUARIO tB_USUARIO = new TB_USUARIO();
 
@@ -122,7 +122,7 @@ namespace Sistema_de_aluno
             }
 
             return dataMorte;
-        }// Valida data de Aquisisao
+        }// Valida data da morte
 
         public string ValidaDataAquisicao(string ValordataAquisicao)
         {
@@ -144,6 +144,82 @@ namespace Sistema_de_aluno
 
             return ValordataAquisicao;
         }// Valida data de Aquisisao
+
+        public string ObtemIdUsuario(string nomeUsuario) 
+        {
+            string connectionString = @"Server=DESKTOP-DH4FP6N; Database=db_peixes;Integrated Security=SSPI;";
+
+            using (SqlConnection conn = new SqlConnection(connectionString)) 
+            {
+                string strQuerySelectUser = @"SELECT id_usuario FROM TB_USUARIO WHERE nm_nome_usuario = @nameUser";
+
+                SqlCommand CommandSelectIdUser = new SqlCommand(strQuerySelectUser, conn);
+                CommandSelectIdUser.Parameters.AddWithValue("@nameUser", nomeUsuario);
+
+                var id_usuario = "";
+                try
+                {
+                    conn.Open();
+                    var read = CommandSelectIdUser.ExecuteReader();
+
+                    read.Read();
+                    id_usuario = read["id_usuario"].ToString();
+                    read.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally 
+                {
+                    if (conn.State == System.Data.ConnectionState.Open) 
+                    {
+                        conn.Close();
+                    }
+                }
+                return id_usuario;
+            }
+        }// Retorna o Id do usuario logado no sistema
+
+        public string ObtemIdPeixe(string nomePeixe, string id_usuario) 
+        {
+            string connectionString = @"Server=DESKTOP-DH4FP6N; Database=db_peixes;Integrated Security=SSPI;";
+
+            string strQuerySelect = $"SELECT id_peixe FROM TB_PEIXES WHERE id_usuario = '{id_usuario}' AND nm_peixe = @nome_peixe";
+
+            using (SqlConnection conn = new SqlConnection(connectionString)) 
+            {
+                SqlCommand CommandSelectIdPeixe = new SqlCommand(strQuerySelect, conn);
+                CommandSelectIdPeixe.Parameters.AddWithValue("@nome_peixe", nomePeixe);
+
+                var id_peixe = "";
+                try
+                {
+                    conn.Open();
+
+                    var read = CommandSelectIdPeixe.ExecuteReader();
+
+                    read.Read();
+                    id_peixe = read["id_peixe"].ToString();
+                    read.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally 
+                {
+                    if (conn.State == System.Data.ConnectionState.Open) 
+                    {
+                        conn.Close();
+                    }
+                }
+
+                return id_peixe;
+            }
+        }// Retorna o Id do peixe selecionado
 
     }
 }

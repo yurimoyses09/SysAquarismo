@@ -1,4 +1,4 @@
-﻿using Sistema_de_aluno.Telas;
+﻿using SistemaDeGerenciamentoDePeixes.Commands;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -6,7 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace Sistema_de_aluno
+namespace SistemaDeGerenciamentoDePeixes.Telas
 {
     public partial class TelaInicial : Form
     {
@@ -92,9 +92,14 @@ namespace Sistema_de_aluno
             MessageBox.Show("Foto Adicionada");
         } // Valida imagem
 
+        private void btnRemoverFoto_Click(object sender, EventArgs e)
+        {
+            pbImagemPeixe.Image = null;
+        }// Deleta imagem carregada
+
         private void btnCadastrarPeixe_Click(object sender, EventArgs e)
         {
-            Commands commands = new Commands();
+            Command commands = new Command();
 
             string connectionString = @"Server=DESKTOP-DH4FP6N; Database=db_peixes;Integrated Security=SSPI;";
 
@@ -384,15 +389,15 @@ namespace Sistema_de_aluno
 
         private void btnDeletar_Click(object sender, EventArgs e)
         {
-            if (cbPeixesDoUsuario.SelectedIndex == 0) 
+            if (cbPeixesDoUsuario.SelectedIndex == 0)
             {
                 cbPeixesDoUsuario.Enabled = false;
             }
             cbPeixesDoUsuario.Enabled = true;
 
             string connectionString = @"Server=DESKTOP-DH4FP6N; Database=db_peixes;Integrated Security=SSPI;";
-            
-            using (SqlConnection conn = new SqlConnection(connectionString)) 
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 string strQuerySelectUser = @"SELECT id_usuario FROM TB_USUARIO WHERE nm_nome_usuario = @nameUser";
@@ -457,9 +462,9 @@ namespace Sistema_de_aluno
                 {
                     MessageBox.Show(ex.Message);
                 }
-                finally 
+                finally
                 {
-                    if (conn.State == ConnectionState.Open) 
+                    if (conn.State == ConnectionState.Open)
                     {
                         conn.Close();
                     }
@@ -467,5 +472,6 @@ namespace Sistema_de_aluno
             }
 
         }// Deleta peixe selecionado no combo
+
     }
 }

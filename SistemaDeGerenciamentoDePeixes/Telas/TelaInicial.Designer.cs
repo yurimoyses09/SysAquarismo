@@ -1,6 +1,6 @@
 ﻿
-namespace Sistema_de_aluno
-  {
+namespace SistemaDeGerenciamentoDePeixes.Telas
+{
   partial class TelaInicial
     {
     /// <summary>
@@ -71,6 +71,7 @@ namespace Sistema_de_aluno
             this.dataMorte = new System.Windows.Forms.ToolTip(this.components);
             this.dataAquisicao = new System.Windows.Forms.ToolTip(this.components);
             this.btnDeletar = new System.Windows.Forms.Button();
+            this.btnRemoverFoto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagemPeixe)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -290,7 +291,7 @@ namespace Sistema_de_aluno
             this.btnUploadFoto.BackColor = System.Drawing.Color.Gainsboro;
             this.btnUploadFoto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUploadFoto.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUploadFoto.Location = new System.Drawing.Point(573, 330);
+            this.btnUploadFoto.Location = new System.Drawing.Point(522, 332);
             this.btnUploadFoto.Name = "btnUploadFoto";
             this.btnUploadFoto.Size = new System.Drawing.Size(88, 23);
             this.btnUploadFoto.TabIndex = 20;
@@ -552,14 +553,28 @@ namespace Sistema_de_aluno
             this.btnDeletar.UseVisualStyleBackColor = false;
             this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
             // 
+            // btnRemoverFoto
+            // 
+            this.btnRemoverFoto.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnRemoverFoto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRemoverFoto.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoverFoto.Location = new System.Drawing.Point(616, 332);
+            this.btnRemoverFoto.Name = "btnRemoverFoto";
+            this.btnRemoverFoto.Size = new System.Drawing.Size(88, 23);
+            this.btnRemoverFoto.TabIndex = 39;
+            this.btnRemoverFoto.Text = "Remover";
+            this.btnRemoverFoto.UseVisualStyleBackColor = false;
+            this.btnRemoverFoto.Click += new System.EventHandler(this.btnRemoverFoto_Click);
+            // 
             // TelaInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.BackgroundImage = global::Sistema_de_aluno.Properties.Resources.maxresdefault;
+            this.BackgroundImage = global::SistemaDeGerenciamentoDePeixes.Properties.Resources.maxresdefault;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1018, 646);
+            this.Controls.Add(this.btnRemoverFoto);
             this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.txtDataMorte);
             this.Controls.Add(this.toolStrip1);
@@ -649,5 +664,6 @@ namespace Sistema_de_aluno
     private System.Windows.Forms.ToolTip dataMorte;
     private System.Windows.Forms.ToolTip dataAquisicao;
     private System.Windows.Forms.Button btnDeletar;
+    private System.Windows.Forms.Button btnRemoverFoto;
   }
   }

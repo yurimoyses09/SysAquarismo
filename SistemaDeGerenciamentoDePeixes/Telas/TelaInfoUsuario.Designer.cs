@@ -1,5 +1,5 @@
 ﻿
-namespace Sistema_de_aluno.Telas
+namespace SistemaDeGerenciamentoDePeixes.Telas
 {
     partial class TelaInfoUsuario
     {
@@ -179,7 +179,7 @@ namespace Sistema_de_aluno.Telas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Sistema_de_aluno.Properties.Resources._3615b8c01dfa0f17d68b752ffe888304;
+            this.BackgroundImage = global::SistemaDeGerenciamentoDePeixes.Properties.Resources._3615b8c01dfa0f17d68b752ffe888304;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(352, 339);
             this.Controls.Add(this.button2);
