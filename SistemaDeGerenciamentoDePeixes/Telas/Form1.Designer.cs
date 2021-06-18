@@ -156,16 +156,16 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 15);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Não Possui Cadastro";
+            this.label1.Text = "Não Possui Cadastro?";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SistemaDeGerenciamentoDePeixes.Properties.Resources.c4058dbab9bfb27555c69a39369e7075;
             this.pictureBox1.InitialImage = global::SistemaDeGerenciamentoDePeixes.Properties.Resources.c4058dbab9bfb27555c69a39369e7075;
-            this.pictureBox1.Location = new System.Drawing.Point(78, 44);
+            this.pictureBox1.Location = new System.Drawing.Point(66, 44);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(291, 209);
+            this.pictureBox1.Size = new System.Drawing.Size(300, 216);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
@@ -192,7 +192,7 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(135, 15);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Esqueceu Senha";
+            this.label2.Text = "Esqueceu Senha?";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Form1

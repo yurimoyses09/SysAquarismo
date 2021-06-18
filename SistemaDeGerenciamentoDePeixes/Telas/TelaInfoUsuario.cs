@@ -43,25 +43,24 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
                     {
                         MessageBox.Show($"Campos Obrigatórios Vazios", "Campos Vazios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+
+                    var result = DB.TB_USUARIO.Any(x => x.nm_usuario == txtUsuario.Text && x.nm_nome_usuario == txtNomeLogin.Text);
+                    if (result == true)
+                    {
+                        MessageBox.Show($"Usuário {txtNomeLogin.Text} encontrado !!", "Redefinir senha", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                        txtSenhaRedefinida.Visible = true;
+                        txtSenhaRedefinida2.Visible = true;
+                        label5.Visible = true;
+                        label3.Visible = true;
+
+                        button1.Visible = true;
+                    }
                     else
                     {
-                        var result = DB.TB_USUARIO.Any(x => x.nm_usuario == txtUsuario.Text && x.nm_nome_usuario == txtNomeLogin.Text);
-                        if (result == true)
-                        {
-                            MessageBox.Show($"Usuário {txtNomeLogin.Text} encontrado !!", "Redefinir senha", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                            txtSenhaRedefinida.Visible = true;
-                            txtSenhaRedefinida2.Visible = true;
-                            label5.Visible = true;
-                            label3.Visible = true;
-
-                            button1.Visible = true;
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Usuário {txtNomeLogin.Text} não encontrado!!", "Redefinir senha", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        }
+                        MessageBox.Show($"Usuário {txtNomeLogin.Text} não encontrado!!", "Redefinir senha", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
+
                 }
             }
             catch (Exception ex)
@@ -109,7 +108,7 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
                 try
                 {
                     int i = cmd.ExecuteNonQuery();
-                    if (i == 1) 
+                    if (i == 1)
                     {
                         MessageBox.Show($"Senha Atualizada com Sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -135,7 +134,7 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
                         conn.Close();
                 }
             }
-            else 
+            else
             {
                 MessageBox.Show($"As senhas nao sao iguais", "Senhas Diferentes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSenhaRedefinida.Text = String.Empty;

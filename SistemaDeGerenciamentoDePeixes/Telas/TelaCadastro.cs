@@ -26,7 +26,7 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
             (
                 txtNomeUsuarioCadastro.Text,
                 cbIdade.Text,
-                txtSenhaUsuarioCadastro.Text,
+                txtTelefoneCadastroUsuario.Text,
                 txtUserNameCadastro.Text,
                 txtSenhaUsuarioCadastro.Text,
                 txtSenhaRepetidaCadastro.Text,
