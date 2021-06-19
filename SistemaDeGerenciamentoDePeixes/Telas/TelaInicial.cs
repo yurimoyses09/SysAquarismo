@@ -241,6 +241,7 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
             MessageBox.Show($"ATÉ BREVE {lblUserLogado.Text}");
 
             Visible = false;
+            form.Visible = true;
 
         }// Mesagem quando o usuario vai para tela inicial
 

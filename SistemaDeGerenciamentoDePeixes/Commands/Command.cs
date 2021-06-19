@@ -49,7 +49,8 @@ namespace SistemaDeGerenciamentoDePeixes.Commands
                         MessageBox.Show("Alguns Campos estão vazios", "Campos Vazios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
-            } catch (Exception ex) 
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -57,7 +58,7 @@ namespace SistemaDeGerenciamentoDePeixes.Commands
 
         public void CadastroUsuario(string nome, string idade, string telefone, string UserName, string senha, string senhaRepetida, string sexo, string pais) // Metodo que realiza a insercao de um usuario no sistema
         {
-            try 
+            try
             {
                 using (db_peixesEntities DB = new db_peixesEntities())
                 {
@@ -70,6 +71,7 @@ namespace SistemaDeGerenciamentoDePeixes.Commands
                         tB_USUARIO.ds_senha = senha;
                         tB_USUARIO.ds_sexo = sexo;
                         tB_USUARIO.ds_Pais = pais;
+
                         if (senha == senhaRepetida)
                         {
                             var result = DB.TB_USUARIO.Any(x => x.nm_nome_usuario == UserName);
@@ -95,7 +97,8 @@ namespace SistemaDeGerenciamentoDePeixes.Commands
                         MessageBox.Show("Alguns campos estão vazios", "Campos vazios", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
-            } catch (Exception ex) 
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -103,7 +106,7 @@ namespace SistemaDeGerenciamentoDePeixes.Commands
 
         public string ValidaDataMorte(string dataMorte)
         {
-            if (dataMorte == String.Empty) 
+            if (dataMorte == String.Empty)
             {
                 dataMorte = DateTime.MinValue.ToString();
                 return dataMorte;
@@ -128,8 +131,9 @@ namespace SistemaDeGerenciamentoDePeixes.Commands
         {
             if (ValordataAquisicao == String.Empty)
             {
-                MessageBox.Show("Valor de data de aquisição está VAZIO","Valor Nulo", MessageBoxButtons.OK);
-            } else
+                MessageBox.Show("Valor de data de aquisição está VAZIO", "Valor Nulo", MessageBoxButtons.OK);
+            }
+            else
             {
                 string dia = ValordataAquisicao.Substring(0, 2);
                 string mes = ValordataAquisicao.Substring(2, 2);
@@ -145,11 +149,11 @@ namespace SistemaDeGerenciamentoDePeixes.Commands
             return ValordataAquisicao;
         }// Valida data de Aquisisao
 
-        public string ObtemIdUsuario(string nomeUsuario) 
+        public string ObtemIdUsuario(string nomeUsuario)
         {
             string connectionString = @"Server=DESKTOP-DH4FP6N; Database=db_peixes;Integrated Security=SSPI;";
 
-            using (SqlConnection conn = new SqlConnection(connectionString)) 
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 string strQuerySelectUser = @"SELECT id_usuario FROM TB_USUARIO WHERE nm_nome_usuario = @nameUser";
 
@@ -171,9 +175,9 @@ namespace SistemaDeGerenciamentoDePeixes.Commands
                 {
                     MessageBox.Show(ex.Message);
                 }
-                finally 
+                finally
                 {
-                    if (conn.State == System.Data.ConnectionState.Open) 
+                    if (conn.State == System.Data.ConnectionState.Open)
                     {
                         conn.Close();
                     }
@@ -182,13 +186,13 @@ namespace SistemaDeGerenciamentoDePeixes.Commands
             }
         }// Retorna o Id do usuario logado no sistema
 
-        public string ObtemIdPeixe(string nomePeixe, string id_usuario) 
+        public string ObtemIdPeixe(string nomePeixe, string id_usuario)
         {
             string connectionString = @"Server=DESKTOP-DH4FP6N; Database=db_peixes;Integrated Security=SSPI;";
 
             string strQuerySelect = $"SELECT id_peixe FROM TB_PEIXES WHERE id_usuario = '{id_usuario}' AND nm_peixe = @nome_peixe";
 
-            using (SqlConnection conn = new SqlConnection(connectionString)) 
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 SqlCommand CommandSelectIdPeixe = new SqlCommand(strQuerySelect, conn);
                 CommandSelectIdPeixe.Parameters.AddWithValue("@nome_peixe", nomePeixe);
@@ -209,9 +213,9 @@ namespace SistemaDeGerenciamentoDePeixes.Commands
                 {
                     MessageBox.Show(ex.Message);
                 }
-                finally 
+                finally
                 {
-                    if (conn.State == System.Data.ConnectionState.Open) 
+                    if (conn.State == System.Data.ConnectionState.Open)
                     {
                         conn.Close();
                     }

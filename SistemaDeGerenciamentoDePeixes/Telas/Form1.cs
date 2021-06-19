@@ -23,6 +23,7 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
 
             tela.Show();
             this.Visible = false;
+            
         }
 
         public void btnLoginTelaInicial_Click(object sender, EventArgs e)
@@ -31,6 +32,8 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
             commands.RealizaLogin(txtNomeUsuario.Text, txtSenha.Text, txtSenhaRepetida.Text);
 
             apagaCampos();
+
+            this.Visible = false;
         }// Realiza login no sistema
 
         public void Form1_Load(object sender, EventArgs e)
@@ -54,6 +57,8 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
             TelaInfoUsuario tl = new TelaInfoUsuario();
 
             tl.Show();
+
+            this.Visible = false;
 
         }
     }

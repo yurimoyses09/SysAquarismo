@@ -243,6 +243,7 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
             // 
             this.cbTamanho.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.cbTamanho.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTamanho.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbTamanho.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTamanho.FormattingEnabled = true;
             this.cbTamanho.Items.AddRange(new object[] {
