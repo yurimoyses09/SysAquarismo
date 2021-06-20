@@ -116,6 +116,12 @@
     <Compile Include="Model\TB_USUARIO.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Telas\PerfilUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Telas\PerfilUsuario.Designer.cs">
+      <DependentUpon>PerfilUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Telas\TelaCadastro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Telas\PerfilUsuario.resx">
+      <DependentUpon>PerfilUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Telas\TelaCadastro.resx">
       <DependentUpon>TelaCadastro.cs</DependentUpon>
     </EmbeddedResource>

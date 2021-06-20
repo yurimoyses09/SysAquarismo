@@ -111,6 +111,7 @@ namespace SistemaDeGerenciamentoDePeixes.Commands
                 dataMorte = DateTime.MinValue.ToString();
                 return dataMorte;
             }
+
             string dia = dataMorte.Substring(0, 2);
             string mes = dataMorte.Substring(2, 2);
             string ano = dataMorte.Substring(4, 4);

@@ -64,9 +64,7 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
             this.btnVerPeixe = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.txtDataMorte = new System.Windows.Forms.TextBox();
             this.dataMorte = new System.Windows.Forms.ToolTip(this.components);
             this.dataAquisicao = new System.Windows.Forms.ToolTip(this.components);
@@ -498,32 +496,20 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
             // 
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3});
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripMenuItem2});
+            this.toolStripDropDownButton1.Image = global::SistemaDeGerenciamentoDePeixes.Properties.Resources._8a61e15cfc1ece8259b2a1b214624375;
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(111, 18);
             this.toolStripDropDownButton1.Text = "Configurações";
             // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
-            this.toolStripMenuItem1.Text = "Links Uteis";
-            // 
             // toolStripMenuItem2
             // 
+            this.toolStripMenuItem2.Image = global::SistemaDeGerenciamentoDePeixes.Properties.Resources._180_kinguio_lionhead_black_3_a_5_cm_10186_1_20180821054402;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(151, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem2.Text = "Perfil";
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(151, 22);
-            this.toolStripMenuItem3.Text = "Idioma";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // txtDataMorte
             // 
@@ -657,9 +643,7 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
     private System.Windows.Forms.Button btnVerPeixe;
     private System.Windows.Forms.ToolStrip toolStrip1;
     private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
-    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
     private System.Windows.Forms.TextBox txtDataMorte;
     private System.Windows.Forms.ToolTip dataMorte;
     private System.Windows.Forms.ToolTip dataAquisicao;

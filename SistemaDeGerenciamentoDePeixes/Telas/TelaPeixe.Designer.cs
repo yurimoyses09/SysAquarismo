@@ -29,6 +29,7 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
     /// </summary>
     private void InitializeComponent()
     {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPeixe));
             this.txtNome = new System.Windows.Forms.TextBox();
             this.txtEspecie = new System.Windows.Forms.TextBox();
@@ -54,6 +55,8 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.txtPeso = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pBImagem)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,6 +100,7 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
             this.txtDataMorte.Size = new System.Drawing.Size(116, 22);
             this.txtDataMorte.TabIndex = 5;
             this.txtDataMorte.TextChanged += new System.EventHandler(this.txtDataMorte_TextChanged);
+            this.txtDataMorte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDataMorte_KeyPress);
             // 
             // txtDescricaoDoente
             // 
@@ -334,6 +338,7 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
             this.txtAquisicaoData.ReadOnly = true;
             this.txtAquisicaoData.Size = new System.Drawing.Size(116, 22);
             this.txtAquisicaoData.TabIndex = 28;
+            this.txtAquisicaoData.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAquisicaoData_KeyPress);
             // 
             // btnAtualizar
             // 
@@ -355,6 +360,7 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
             this.txtPeso.Name = "txtPeso";
             this.txtPeso.Size = new System.Drawing.Size(116, 22);
             this.txtPeso.TabIndex = 31;
+            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeso_KeyPress);
             // 
             // label1
             // 
@@ -367,6 +373,14 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
             this.label1.Size = new System.Drawing.Size(0, 14);
             this.label1.TabIndex = 32;
             this.label1.UseMnemonic = false;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            // 
+            // toolTip2
+            // 
+            this.toolTip2.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip2_Popup);
             // 
             // TelaPeixe
             // 
@@ -436,5 +450,7 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
     private System.Windows.Forms.Button btnAtualizar;
     public System.Windows.Forms.TextBox txtPeso;
     private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.ToolTip toolTip1;
+    private System.Windows.Forms.ToolTip toolTip2;
   }
 }

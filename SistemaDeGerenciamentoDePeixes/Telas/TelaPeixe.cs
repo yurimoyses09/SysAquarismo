@@ -64,7 +64,18 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
 
                 try
                 {
-                    string UpdatePeixe = $"UPDATE TB_PEIXES SET ds_descricao = @descricao, vl_peso = @peso, vl_tamanho = @tamanho, ds_data_morte = @datamorte, ds_status_saude = @statussaude, ds_doenca = @doenca, ds_sexo = @sexo WHERE id_peixe = '{idPeixe}' AND id_usuario = '{idUsuario}'";
+                    string UpdatePeixe = $"UPDATE TB_PEIXES " +
+                                            $"SET ds_descricao = " +
+                                            $"@descricao, " +
+                                            $"vl_peso = @peso, " +
+                                            $"vl_tamanho = @tamanho, " +
+                                            $"ds_data_morte = @datamorte," +
+                                            $" ds_status_saude = @statussaude, " +
+                                            $"ds_doenca = @doenca, " +
+                                            $"ds_sexo = @sexo " +
+                                            $"WHERE " +
+                                            $"id_peixe = '{idPeixe}' AND " +
+                                            $"id_usuario = '{idUsuario}'";
 
                     SqlCommand cmd = new SqlCommand(UpdatePeixe, conn);
 
@@ -84,22 +95,20 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
                         if (i == 1)
                         {
                             MessageBox.Show($"Informações atualizadas com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                         }
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
-
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                finally 
+                finally
                 {
-                    if (conn.State == ConnectionState.Open) 
+                    if (conn.State == ConnectionState.Open)
                     {
                         conn.Close();
                     }
@@ -109,7 +118,58 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
 
         private void txtDataMorte_TextChanged(object sender, EventArgs e)
         {
+            toolTip1.AutoPopDelay = 2000;
+            toolTip1.SetToolTip(this.txtDataMorte, "Formato valido dia/mes/ano, COM BARRAS");
+        }
 
+        private void txtDataMorte_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8) // Se valores ano forem numericos
+            {
+                e.Handled = true;
+                //MessageBox.Show("Só permitido valores numericos", "Valor Incorreto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void txtAquisicaoData_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8) // Se valores ano forem numericos
+            {
+                e.Handled = true;
+                //MessageBox.Show("Só permitido valores numericos", "Valor Incorreto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void txtPeso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && e.KeyChar != (char)8) // Se valores ano forem numericos
+            {
+                e.Handled = true;
+                //MessageBox.Show("Só permitido valores numericos", "Valor Incorreto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                e.Handled = false;
+            }
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void toolTip2_Popup(object sender, PopupEventArgs e)
+        {
+            toolTip2.AutoPopDelay = 2000;
+            toolTip2.SetToolTip(this.txtAquisicaoData, "Formato valido dia/mes/ano, COM BARRAS");
         }
     }
 }

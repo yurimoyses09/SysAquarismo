@@ -15,6 +15,10 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
             InitializeComponent();
             lblUserLogado.Text = nameUser;
         }
+        public TelaInicial()
+        {
+            InitializeComponent();
+        }
 
         public void carregaPeixes()
         {
@@ -474,5 +478,13 @@ namespace SistemaDeGerenciamentoDePeixes.Telas
 
         }// Deleta peixe selecionado no combo
 
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            PerfilUsuario perfilUsuario = new PerfilUsuario(lblUserLogado.Text);
+            perfilUsuario.Show();
+
+            this.Visible = false;
+
+        }
     }
 }
